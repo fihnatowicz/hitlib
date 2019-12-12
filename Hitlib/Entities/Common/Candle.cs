@@ -9,13 +9,13 @@ namespace Hitlib.Entities
 {
     public class Candle
     {
-        public List<Candlestick> data { get; set; }
-        public string symbol { get; set; }
-        public Period period { get; set; }
+        public List<Candlestick> Data { get; set; }
+        public string Symbol { get; set; }
+        public Period Period { get; set; }
 
         public static void Subscribe(string symbol, Period period)
         {
-            var request = new Request
+            var request = new
             {
                 method = "subscribeCandles",
                 @params = new
@@ -48,13 +48,13 @@ namespace Hitlib.Entities
 
         public class Candlestick
         {
-            public decimal? close { get; set; }
-            public decimal? max { get; set; }
-            public decimal? min { get; set; }
-            public decimal? open { get; set; }
-            public decimal volume { get; set; }
-            public decimal volumeQuote { get; set; }
-            public DateTime timestamp { get; set; }
+            public decimal? Close { get; set; }
+            public decimal? Max { get; set; }
+            public decimal? Min { get; set; }
+            public decimal? Open { get; set; }
+            public decimal Volume { get; set; }
+            public decimal VolumeQuote { get; set; }
+            public DateTime Timestamp { get; set; }
         }
     }
 }

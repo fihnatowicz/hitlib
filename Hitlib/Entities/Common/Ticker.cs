@@ -9,26 +9,26 @@ namespace Hitlib.Entities
 {
     public class Ticker
     {
-        public decimal? ask { get; set; }
-        public decimal? bid { get; set; }
-        public decimal? last { get; set; }
-        public decimal? open { get; set; }
-        public decimal? low { get; set; }
-        public decimal? high { get; set; }
-        public decimal volume { get; set; }
-        public decimal volumeQuote { get; set; }
-        public DateTime timestamp { get; set; }
-        public string symbol { get; set; }
+        public decimal? Ask { get; set; }
+        public decimal? Bid { get; set; }
+        public decimal? Last { get; set; }
+        public decimal? Open { get; set; }
+        public decimal? Low { get; set; }
+        public decimal? High { get; set; }
+        public decimal Volume { get; set; }
+        public decimal VolumeQuote { get; set; }
+        public DateTime Timestamp { get; set; }
+        public string Symbol { get; set; }
 
         public override string ToString()
         {
             return string.Format("[{0}] {1} : ask: {2} | bid: {3} | last: {4} | open: {5} | low: {6} | high: {7} | volume: {8} | volumeQuote: {9}", 
-                this.timestamp, this.symbol, this.ask, this.bid, this.last, this.open, this.low, this.high, this.volume, this.volumeQuote);
+                this.Timestamp, this.Symbol, this.Ask, this.Bid, this.Last, this.Open, this.Low, this.High, this.Volume, this.VolumeQuote);
         }
 
         public static void Subscribe(string symbol)
         {
-            var request = new Request
+            var request = new
             {
                 method = "subscribeTicker",
                 @params = new
@@ -42,7 +42,7 @@ namespace Hitlib.Entities
         }
         public static void Unsubscribe(string symbol)
         {
-            var request = new Request
+            var request = new
             {
                 method = "unsubscribeTicker",
                 @params = new

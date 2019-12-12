@@ -9,12 +9,12 @@ namespace Hitlib.Entities
 {
     public class Trade
     {
-        public List<TradeItem> data { get; set; }
-        public string symbol { get; set; }
+        public List<TradeItem> Data { get; set; }
+        public string Symbol { get; set; }
 
         public static void Subscribe(string symbol)
         {
-            var request = new Request
+            var request = new
             {
                 method = "subscribeTrades",
                 @params = new
@@ -39,15 +39,15 @@ namespace Hitlib.Entities
 
         public class TradeItem
         {
-            public long id { get; set; }
-            public decimal price { get; set; }
-            public decimal quantity { get; set; }
-            public Side side { get; set; }
-            public DateTime timestamp { get; set; }
+            public long Id { get; set; }
+            public decimal Price { get; set; }
+            public decimal Quantity { get; set; }
+            public Side Side { get; set; }
+            public DateTime Timestamp { get; set; }
 
             public override string ToString()
             {
-                return string.Format("{0} | [{1}] | p: {2} a: {3} @{4}", this.id, this.timestamp.ToString("yyyy-MM-dd HH:mm:ss.ffffff"), this.price, this.quantity, this.side);
+                return string.Format("{0} | [{1}] | p: {2} a: {3} @{4}", this.Id, this.Timestamp.ToString("yyyy-MM-dd HH:mm:ss.ffffff"), this.Price, this.Quantity, this.Side);
             }
         }
 

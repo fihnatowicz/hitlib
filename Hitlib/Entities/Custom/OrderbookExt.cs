@@ -16,7 +16,7 @@ namespace Hitlib.CustomEntities
         }
         public OrderbookExt(Orderbook orderbook)
         {
-            Symbol = orderbook.symbol;
+            Symbol = orderbook.Symbol;
             Ask = new SortedDictionary<decimal, decimal>();
             Bid = new SortedDictionary<decimal, decimal>();
             AddOrUpdate(orderbook);
@@ -24,19 +24,19 @@ namespace Hitlib.CustomEntities
 
         public void AddOrUpdate(Orderbook orderbook)
         {
-            foreach (var book in orderbook.ask)
+            foreach (var book in orderbook.Ask)
             {
-                if (book.size == 0M)
-                    Ask.Remove(book.price);
+                if (book.Size == 0M)
+                    Ask.Remove(book.Price);
                 else
-                    Ask[book.price] = book.size;
+                    Ask[book.Price] = book.Size;
             }
-            foreach (var book in orderbook.bid)
+            foreach (var book in orderbook.Bid)
             {
-                if (book.size == 0M)
-                    Bid.Remove(book.price);
+                if (book.Size == 0M)
+                    Bid.Remove(book.Price);
                 else
-                    Bid[book.price] = book.size;
+                    Bid[book.Price] = book.Size;
             }
         }
     }

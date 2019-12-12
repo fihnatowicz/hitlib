@@ -6,8 +6,8 @@ namespace Hitlib.Entities
 {
     public class Request
     {
-        public string method { get; set; }
-        public object @params { get; set; }
-        public string id { get; set; }
+        public string Method { get; set; }
+        public object Params { get; set; }
+        public string Id { get; set; }
     }
 }

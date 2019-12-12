@@ -8,9 +8,9 @@ namespace Hitlib.Entities
 {
     public class Error
     {
-        public int code { get; set; }
-        public string message { get; set; }
-        public string description { get; set; }
+        public int Code { get; set; }
+        public string Message { get; set; }
+        public string Description { get; set; }
 
         public static event EventHandler<Error> OnErrorReceived;
 
@@ -25,7 +25,7 @@ namespace Hitlib.Entities
 
         public override string ToString()
         {
-            return string.Format("Code: {0}, Message: {1}, Description: {2}", this.code, this.message, this.description);
+            return string.Format("Code: {0}, Message: {1}, Description: {2}", this.Code, this.Message, this.Description);
         }
     }
 }

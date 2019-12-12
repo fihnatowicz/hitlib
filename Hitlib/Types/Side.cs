@@ -6,7 +6,7 @@ namespace Hitlib.Types
 {
     public enum Side
     {
-        buy,
-        sell
+        Buy,
+        Sell
     }
 }

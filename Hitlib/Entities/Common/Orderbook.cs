@@ -11,14 +11,14 @@ namespace Hitlib.Entities
 {
     public class Orderbook
     {
-        public List<Book> ask { get; set; }
-        public List<Book> bid { get; set; }
-        public string symbol { get; set; }
-        public long sequence { get; set; }
+        public List<Book> Ask { get; set; }
+        public List<Book> Bid { get; set; }
+        public string Symbol { get; set; }
+        public long Sequence { get; set; }
 
         public static void Subscribe(string symbol)
         {
-            var request = new Request
+            var request = new
             {
                 method = "subscribeOrderbook",
                 @params = new
@@ -43,8 +43,8 @@ namespace Hitlib.Entities
 
         public class Book
         {
-            public decimal price { get; set; }
-            public decimal size { get; set; }
+            public decimal Price { get; set; }
+            public decimal Size { get; set; }
         }
     }
 

@@ -8,23 +8,23 @@ namespace Hitlib.Entities
 {
     public class Report
     {
-        public long id { get; set; }
-        public string clientOrderId { get; set; }
-        public string symbol { get; set; }
-        public string side { get; set; }
-        public string status { get; set; }
-        public string type { get; set; }
-        public string timeInForce { get; set; }
-        public decimal quantity { get; set; }
-        public decimal price { get; set; }
-        public decimal cumQuantity { get; set; }
-        public DateTime createdAt { get; set; }
-        public DateTime? updatedAt { get; set; }
-        public string reportType { get; set; }
+        public long Id { get; set; }
+        public string ClientOrderId { get; set; }
+        public string Symbol { get; set; }
+        public string Side { get; set; }
+        public string Status { get; set; }
+        public string Type { get; set; }
+        public string TimeInForce { get; set; }
+        public decimal Quantity { get; set; }
+        public decimal Price { get; set; }
+        public decimal CumQuantity { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public string ReportType { get; set; }
 
         public static void Subscribe()
         {
-            var request = new Request
+            var request = new
             {
                 method = "subscribeReports"
             };
@@ -47,10 +47,10 @@ namespace Hitlib.Entities
 
     public class TradeReport : Report
     {
-        public decimal tradeQuantity { get; set; }
-        public decimal tradePrice { get; set; }
-        public long tradeId { get; set; }
-        public decimal tradeFee { get; set; }
+        public decimal TradeQuantity { get; set; }
+        public decimal TradePrice { get; set; }
+        public long TradeId { get; set; }
+        public decimal TradeFee { get; set; }
 
         public static event EventHandler<TradeReport> OnReportReceived;
         public static event EventHandler<TradeReport> OnOrderFilled;
@@ -64,13 +64,13 @@ namespace Hitlib.Entities
             if (OnReportReceived != null)
                 OnReportReceived.Invoke(null, report);
 
-            if (OnOrderFilled != null && report.status == "filled")
+            if (OnOrderFilled != null && report.Status == "filled")
                 OnOrderFilled.Invoke(null, report);
 
-            if (OnOrderPartiallyFilled != null && report.status == "partiallyFilled")
+            if (OnOrderPartiallyFilled != null && report.Status == "partiallyFilled")
                 OnOrderPartiallyFilled.Invoke(null, report);
 
-            if (OnOrderCancelled != null && report.status == "canceled")
+            if (OnOrderCancelled != null && report.Status == "canceled")
                 OnOrderCancelled.Invoke(null, report);
         }
     }

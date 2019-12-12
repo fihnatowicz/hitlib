@@ -6,8 +6,8 @@ namespace Hitlib.Types
 {
     public enum OrderType
     {
-        limit,
-        market,
-        stopLimit
+        Limit,
+        Market,
+        StopLimit
     }
 }

@@ -8,13 +8,13 @@ namespace Hitlib.Entities
 {
     public class Balance
     {
-        public string currency { get; set; }
-        public decimal available { get; set; }
-        public decimal reserved { get; set; }
+        public string Currency { get; set; }
+        public decimal Available { get; set; }
+        public decimal Reserved { get; set; }
 
         public static void Subscribe()
         {
-            var request = new Request
+            var request = new
             {
                 method = "getTradingBalance",
                 @params = new

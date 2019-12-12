@@ -9,25 +9,25 @@ namespace Hitlib.Entities
 {
     public class Order
     {
-        public long id { get; set; }
-        public string clientOrderId { get; set; }
-        public string symbol { get; set; }
-        public string side { get; set; }
-        public string status { get; set; }
-        public string type { get; set; }
-        public string timeInForce { get; set; }
-        public decimal quantity { get; set; }
-        public decimal price { get; set; }
-        public decimal cumQuantity { get; set; }
-        public DateTime createdAt { get; set; }
-        public DateTime? updatedAt { get; set; }
-        public string reportType { get; set; }
-        public string originalRequestClientOrderId { get; set; }
+        public long Id { get; set; }
+        public string ClientOrderId { get; set; }
+        public string Symbol { get; set; }
+        public string Side { get; set; }
+        public string Status { get; set; }
+        public string Type { get; set; }
+        public string TimeInForce { get; set; }
+        public decimal Quantity { get; set; }
+        public decimal Price { get; set; }
+        public decimal CumQuantity { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public string ReportType { get; set; }
+        public string OriginalRequestClientOrderId { get; set; }
 
-        public static string PlaceOrder(string symbol, Side side, decimal quantity, decimal price, TimeInForce timeInForce = TimeInForce.GTC, OrderType type = OrderType.limit)
+        public static string PlaceOrder(string symbol, Side side, decimal quantity, decimal price, TimeInForce timeInForce = Types.TimeInForce.GTC, OrderType type = OrderType.Limit)
         {
             var clientOrderId = Guid.NewGuid().ToString("N");
-            var request = new Request
+            var request = new
             {
                 method = "newOrder",
                 @params = new
@@ -52,7 +52,7 @@ namespace Hitlib.Entities
 
         public static void CancelOrder(string clientOrderId)
         {
-            var request = new Request
+            var request = new
             {
                 method = "cancelOrder",
                 @params = new
@@ -67,7 +67,7 @@ namespace Hitlib.Entities
 
         public static void GetOrders()
         {
-            var request = new Request
+            var request = new
             {
                 method = "getOrders",
                 @params = new
